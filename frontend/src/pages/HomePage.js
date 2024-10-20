@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/styles.css'; 
 import WelcomeRecordCard from '../components/WelcomeRecordCard';
-import SatisfactionRateCard from '../components/SatisfactionRateCard';
 import ReferralTrackingCard from '../components/ReferralTrackingCard';
 
 const HomePage = () => {
