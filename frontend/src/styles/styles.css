@@ -151,7 +151,7 @@ body {
     color: #333;
   }
   
-  
+.center-card{  
   display: flex;
   justify-content: center;
   align-items: center;
