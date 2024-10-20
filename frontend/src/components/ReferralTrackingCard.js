@@ -46,23 +46,22 @@ const fetchDataFromAPI = async () => {
 
    
 
+    // Make the first (and only) fetch request with the access token
     const response = await fetch(`https://13e2-199-115-241-193.ngrok-free.app/api/diary-analysis/${userId}`, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${tokenObject}`,
+        Authorization: `Bearer ${tokenObject}`, // Pass the correct access token here
+        mode: 'no-cors', // Avoid using this for production as it will give you an opaque response
       },
     });
 
-    console.log('API Response URL:', response.url); // This will log the URL of the API request
-    
     if (!response.ok) {
-      // If the response is not OK, throw an error to handle it in the catch block
       throw new Error(`Error in API request: ${response.statusText}`);
     }
 
+    const data = await response.text(); 
+    console.log('Raw API Response:', data); 
 
-    const data = await response.url;
-    console.log('API data:', data); // Debugging step
 
     if (data && data.message) {
       setApiData(data.message);
