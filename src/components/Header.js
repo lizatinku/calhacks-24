@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FaClock, FaBars } from 'react-icons/fa';
-import { Link } from 'react-router-dom'; // Import Link for routing
+import { FaClock } from 'react-icons/fa';
 
 const Header = () => {
   const [currentTime, setCurrentTime] = useState({ time: '', date: '' });
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Dropdown state
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -26,68 +24,10 @@ const Header = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen); // Toggle dropdown visibility
-  };
-
   return (
     <header className="relative flex items-center justify-between py-6 px-8 bg-gradient-to-b from-[#009965] to-[#180046] text-white shadow-lg backdrop-blur-lg">
-      {/* Left side: Dropdown Button */}
-      <div className="relative">
-        <button
-          onClick={toggleDropdown}
-          className="flex items-center bg-gray-700 px-4 py-2 rounded-lg shadow-md hover:bg-gray-600"
-        >
-          <FaBars className="text-white" /> {/* Icon for the dropdown */}
-        </button>
-
-        {/* Dropdown Menu as Full Height Vertical Column */}
-        {isDropdownOpen && (
-          <div className="absolute left-0 top-0 h-screen w-64 bg-gradient-to-b from-[#0a0034] to-[#180046] text-white z-20 shadow-lg">
-            <ul className="flex flex-col h-full justify-center space-y-8 p-6">
-              <li>
-                <Link
-                  to="/home"
-                  className="block text-lg px-4 py-2 hover:bg-gray-600 rounded-md"
-                  onClick={toggleDropdown} // Close dropdown on click
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/MoodCalendarPage"
-                  className="block text-lg px-4 py-2 hover:bg-gray-600 rounded-md"
-                  onClick={toggleDropdown}
-                >
-                  Mood Calendar
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/AIFriend"
-                  className="block text-lg px-4 py-2 hover:bg-gray-600 rounded-md"
-                  onClick={toggleDropdown}
-                >
-                  AI Friend
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/Tables"
-                  className="block text-lg px-4 py-2 hover:bg-gray-600 rounded-md"
-                  onClick={toggleDropdown}
-                >
-                  Tables
-                </Link>
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
-
       {/* Center: DayTalks title */}
-      <div className="text-left ml-8"> {/* Added left margin to separate title from menu */}
+      <div className="text-left ml-8"> {/* Added left margin to separate title */}
         <h1 className="text-5xl font-extrabold tracking-wide uppercase">
           DayTalks
         </h1>

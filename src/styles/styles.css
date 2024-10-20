@@ -571,4 +571,9 @@ body {
     opacity: 0.7;
   }
 }
+.custom-calendar {
+  /* Add any specific calendar styling you want */
+  border: none;
+  background-color: #1a1b2d;
+}
 

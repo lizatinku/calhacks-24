@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 
 const WelcomeRecordCard = ({ name, onRecord, onSeeCalendar }) => {
   return (
@@ -38,13 +39,13 @@ const WelcomeRecordCard = ({ name, onRecord, onSeeCalendar }) => {
             {name}
           </h1>
           <p style={{ fontSize: '16px', marginTop: '10px' }}>
-            Glad to see you again! Ask me anything.
+            Glad to see you again. Let's talk!
           </p>
         </div>
 
         {/* Buttons at the bottom */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-          <a href="/AIFriend" target="_blank" rel="noopener noreferrer">
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px', marginTop: 'auto' }}>
+          <Link to="/AIFriend"> {/* Use Link for in-page navigation */}
             <button 
               style={{
                 backgroundColor: '#28a745',
@@ -58,9 +59,10 @@ const WelcomeRecordCard = ({ name, onRecord, onSeeCalendar }) => {
                 textAlign: 'center'
               }}
             >
-              Tap to Record
+              Tap to Talk
             </button>
-          </a>
+          </Link>
+          
           <button 
             onClick={onSeeCalendar} 
             style={{
