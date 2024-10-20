@@ -18,10 +18,10 @@ const LoginForm = () => {
 
     try {
       const response = await axios.post('https://13e2-199-115-241-193.ngrok-free.app/auth/login', loginData);
-      console.log('Login successful:', response.data);
+      console.log('Login successful:', response.data.access_token);
 
       // Store the token in localStorage or sessionStorage
-      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('token', response.data.access_token);
 
       setMessage('Login successful!');
       
